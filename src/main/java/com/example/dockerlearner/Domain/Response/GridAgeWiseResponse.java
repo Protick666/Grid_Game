@@ -2,24 +2,13 @@ package com.example.dockerlearner.Domain.Response;
 
 import com.example.dockerlearner.Domain.Grid;
 import com.example.dockerlearner.Domain.GridRepresentation;
+import com.example.dockerlearner.Domain.GridWithAgeStamp;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 public class GridAgeWiseResponse implements Serializable {
-
-    public class GridWithAgeStamp {
-        int age;
-        GridRepresentation grid;
-
-        public GridWithAgeStamp() {}
-
-        public GridWithAgeStamp(int age, GridRepresentation grid) {
-            this.age = age;
-            this.grid = grid;
-        }
-    }
 
     public int x;
     public int y;
@@ -34,7 +23,7 @@ public class GridAgeWiseResponse implements Serializable {
         this.data = new ArrayList<>();
     }
 
-    public void insertGridStamps(int age, int[][] gridCells) {
+    public void insertGridStamp(int age, int[][] gridCells) {
         GridRepresentation representation = new GridRepresentation(gridCells);
         GridWithAgeStamp gridWithAgeStamp = new GridWithAgeStamp(age, representation);
 

@@ -14,7 +14,7 @@ public class GridRepresentation {
 
         for(int i = 0; i < x; i++) {
             List<Integer> row = new ArrayList<>();
-            for(int j = 0; j < y; i++) {
+            for(int j = 0; j < y; j++) {
                 row.add(gridCells[i][j]);
             }
             data.add(row);
