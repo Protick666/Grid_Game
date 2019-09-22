@@ -33,9 +33,6 @@ public class GridRest {
 
     @RequestMapping(value = {"/{id}/after"}, method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public void getGrid(@PathVariable Integer id, @RequestParam(value = "age", required = true) List<Integer> ageList) {
-       // gridService.getGrid(id);
+       gridService.getGridInAgePhases(id, ageList);
     }
-
-
-
 }

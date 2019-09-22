@@ -6,5 +6,5 @@ import java.util.List;
 public class AddOrModifyGridRequest implements Serializable {
     public int x;
     public int y;
-    public List<Integer> gridDescription;
+    public List<Integer> data;
 }
