@@ -5,6 +5,7 @@ import com.example.dockerlearner.Domain.Request.AddOrModifyGridRequest;
 import com.example.dockerlearner.Domain.Response.GridAgeWiseResponse;
 import com.example.dockerlearner.Domain.Response.GridDescriptionResponse;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.HttpClientErrorException;
 
 import java.util.*;
 
@@ -27,6 +28,11 @@ public class GridService {
         }
     }
 
+    public boolean doesExist(int id) {
+        return gridMap.containsKey(id);
+
+    }
+
     public void populateSourceAndDestination(int[][] source, int[][] destination, Grid grid) {
         for(int i = 0; i < grid.getX(); i++) {
             for(int j = 0; j < grid.getY(); j++) {
@@ -36,7 +42,7 @@ public class GridService {
         }
     }
 
-    public GridDescriptionResponse insertGrid(AddOrModifyGridRequest request) {
+    public GridDescriptionResponse insertGrid(AddOrModifyGridRequest request) throws HttpClientErrorException.BadRequest {
         Grid grid = new Grid(idCount, request);
         gridMap.put(idCount, grid);
         idCount++;
