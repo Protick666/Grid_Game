@@ -86,7 +86,7 @@ public class GridService {
             for(int x  = 0; x < X; x++) {
                 for(int y = 0; y < Y; y++) {
 
-                    NeighBourInfo neighBourInfo =  getNeighboursInfo(x, y, source);
+                    NeighBourInfo neighBourInfo =  getNeighboursInfo(x, y, source, true);
                     if(source[x][y] == 0) {
                         if(neighBourInfo.liveNeighbours == 3)
                             destination[x][y] = 1;
@@ -114,7 +114,7 @@ public class GridService {
         return response;
     }
 
-    private NeighBourInfo getNeighboursInfo(int x, int y, int[][] grid) {
+    private NeighBourInfo getNeighboursInfo(int x, int y, int[][] grid, boolean flag) {
         int liveNBs = 0, deadNBs = 0;
 
         for(int xDir = -1; xDir <= 1; xDir++) {
